@@ -10,7 +10,9 @@ public class Controller {
 
     @GetMapping("/boasvindas")
     public String boasVindas(){
-        return "Seja bem vindo" ;
+
+        return "Seja bem vindo novamente" ;
+
     }
 
 
