@@ -1,4 +1,4 @@
-package com.claving.CadastroDeNinjas;
+package com.claving.CadastroDeNinjas.Ninjas;
 
 import jakarta.persistence.*;
 
