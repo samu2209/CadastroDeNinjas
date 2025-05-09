@@ -1,6 +1,8 @@
 package com.claving.CadastroDeNinjas.Ninjas;
 
+import com.claving.CadastroDeNinjas.Missao.MissoesModel;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -14,6 +16,12 @@ public class NinjaModel {
     private String aldeia ;
     private  String email;
 
+    // Um ninja tem uma unica missão
+    @ManyToOne
+    @JoinColumn( name = "missoes_id")
+    private MissoesModel missaoAtual ;
+    private List<MissoesModel> missoesConcluidas ;
+
     public NinjaModel(){
     }
     public NinjaModel(String nome, Integer idade, String email,  String aldeia) {
@@ -22,6 +30,7 @@ public class NinjaModel {
         this.aldeia = aldeia;
         this.email = email;
     }
+
 
     public void setNome(String nome) {
         this.nome = nome;
