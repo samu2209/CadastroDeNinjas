@@ -2,10 +2,17 @@ package com.claving.CadastroDeNinjas.Ninjas;
 
 import com.claving.CadastroDeNinjas.Missao.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class NinjaModel {
 
     @Id
@@ -22,60 +29,12 @@ public class NinjaModel {
     private MissoesModel missaoAtual ;
     private List<MissoesModel> missoesConcluidas ;
 
-    public NinjaModel(){
-    }
-    public NinjaModel(String nome, Integer idade, String email,  String aldeia) {
+    public NinjaModel(String nome, Integer idade, String aldeia) {
         this.nome = nome;
         this.idade = idade;
         this.aldeia = aldeia;
-        this.email = email;
     }
-
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setIdade(Integer idade) {
-        this.idade = idade;
-    }
-
-    public void setAldeia(String aldeia) {
-        this.aldeia = aldeia;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public Integer getIdade() {
-        return idade;
-    }
-
-    public String getAldeia() {
-        return aldeia;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    @Override
-    public String toString() {
-        return "NinjaModel{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", aldeia='" + aldeia + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public void setId(Long id) {
+        throw new UnsupportedOperationException("ID é gerado automaticamente e não pode ser alterado.");
     }
 }
