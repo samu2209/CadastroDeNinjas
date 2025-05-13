@@ -11,7 +11,6 @@ import java.util.List;
 @Entity
 @Table(name = "tb_cadastro")
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 public class NinjaModel {
 
@@ -32,8 +31,9 @@ public class NinjaModel {
     public NinjaModel(String nome, Integer idade, String aldeia) {
         this.nome = nome;
         this.idade = idade;
-        this.aldeia = aldeia;
+        this.aldeia = aldeia ;
     }
+
     public void setId(Long id) {
         throw new UnsupportedOperationException("ID é gerado automaticamente e não pode ser alterado.");
     }
