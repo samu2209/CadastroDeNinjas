@@ -1,5 +1,4 @@
 package com.claving.CadastroDeNinjas.Missao;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
