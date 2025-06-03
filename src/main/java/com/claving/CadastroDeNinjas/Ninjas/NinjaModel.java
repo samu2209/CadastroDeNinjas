@@ -20,6 +20,8 @@ public class NinjaModel {
     private String aldeia ;
     private  String email;
 
+    public NinjaModel() {
+    }
 
     public NinjaModel(String nome, Integer idade, String aldeia) {
         this.nome = nome;

@@ -13,21 +13,21 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String rank;
+    private String dificuldade;
 
 
     public MissoesModel() {
     }
 
-    public MissoesModel(String nome, String rank) {
+    public MissoesModel(String nome, String dificuldade) {
         this.nome = nome;
-        this.rank = rank;
+        this.dificuldade = dificuldade;
     }
 
-    public MissoesModel(Long id, String nome, String rank) {
+    public MissoesModel(Long id, String nome, String dificuldade) {
         this.id = id;
         this.nome = nome;
-        this.rank = rank;
+        this.dificuldade = dificuldade;
     }
 
     public Long getId() {
@@ -46,12 +46,12 @@ public class MissoesModel {
         this.nome = nome;
     }
 
-    public String getRank() {
-        return rank;
+    public String getDificuldade() {
+        return dificuldade;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
+    public void setDificuldade(String dificuldade) {
+        this.dificuldade = dificuldade;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class MissoesModel {
         return "MissoesModel{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", rank='" + rank + '\'' +
+                ", rank='" + dificuldade + '\'' +
                 '}';
     }
 
