@@ -1,18 +1,12 @@
 package com.claving.CadastroDeNinjas.Missao;
 
-import com.claving.CadastroDeNinjas.Ninjas.NinjaModel;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.util.List;
-
+import java.util.Objects;
 
 @Entity
-@Table(name = "tb_missao")
-@NoArgsConstructor
-@Data
+@Table(name="missoes")
 public class MissoesModel {
 
     @Id
@@ -20,18 +14,64 @@ public class MissoesModel {
     private Long id;
     private String nome;
     private String rank;
-    private Boolean missaoAberta;
 
-    @OneToMany(mappedBy = "missaoAtual")
-    private List<NinjaModel> ninjasAtribuidos;
 
+    public MissoesModel() {
+    }
 
     public MissoesModel(String nome, String rank) {
         this.nome = nome;
         this.rank = rank;
     }
 
-    public void setId(Long id){
-        throw new UnsupportedOperationException("O ID não pode ser definido, pois já é gerado automaticamente") ;
+    public MissoesModel(Long id, String nome, String rank) {
+        this.id = id;
+        this.nome = nome;
+        this.rank = rank;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRank() {
+        return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    @Override
+    public String toString() {
+        return "MissoesModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", rank='" + rank + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        MissoesModel that = (MissoesModel) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

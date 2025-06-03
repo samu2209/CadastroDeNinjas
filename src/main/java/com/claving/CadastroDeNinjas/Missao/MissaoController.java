@@ -1,15 +1,24 @@
 package com.claving.CadastroDeNinjas.Missao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/missoes")
 public class MissaoController {
 
-    MissoesModel novaMissao = new MissoesModel("Matar Madara Uchirra" , "SS") ;
+    @Autowired
+    MissaoService missaoService ;
 
-    @GetMapping("/missao")
-    public String missao(){
-        return novaMissao.toString() ;
+    @GetMapping
+    public List<MissoesModel> findAll(){
+
+        return missaoService.findAll()  ;
+
     }
+
 
 }
