@@ -12,11 +12,19 @@ public class MissaoService {
     MissaoRepository missaoRepository ;
 
 
-    public List<MissoesModel> findAll(){
+    public List<MissaoDTO> findAll(){
 
-        List<MissoesModel> missoes = missaoRepository.findAll() ;
+        List<MissaoDTO> missoes =  missaoRepository.findAll()
+                .stream()
+                .map(MissaoDTO::new).toList();
 
         return  missoes ;
+
+    }
+
+    public MissaoDTO findById( Long id ){
+        MissoesModel missao = missaoRepository.findById(id).get() ;
+        return new MissaoDTO(missao) ;
 
     }
 

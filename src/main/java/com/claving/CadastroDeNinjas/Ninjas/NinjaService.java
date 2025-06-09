@@ -17,5 +17,25 @@ public class NinjaService {
 
     }
 
+    public NinjaDTO findById(Long id){
+        NinjaModel ninja = ninjaRepository.findById(id).get() ;
+
+        return  new NinjaDTO(ninja) ;
+    }
+
+
+    public NinjaModel criarNinja( NinjaDTO ninja ){
+
+        NinjaModel novoNinja = new NinjaModel() ;
+        novoNinja.setNome(ninja.getNome());
+        novoNinja.setIdade(ninja.getIdade());
+        novoNinja.setEmail(ninja.getEmail());
+        novoNinja.setAldeia(ninja.getAldeia());
+
+        return ninjaRepository.save(novoNinja) ;
+
+
+    }
+
 
 }

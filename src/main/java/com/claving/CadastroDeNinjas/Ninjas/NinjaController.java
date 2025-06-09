@@ -1,9 +1,7 @@
 package com.claving.CadastroDeNinjas.Ninjas;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -12,12 +10,25 @@ import java.util.List;
 public class NinjaController {
 
     @Autowired
-    NinjaRepository ninjaRepository ;
+    NinjaService ninjaService ;
+
+
     @GetMapping
     public List<NinjaModel> findAll(){
-        return ninjaRepository.findAll();
+        return ninjaService.findAll();
     }
 
+    @GetMapping("{id}")
+    public NinjaDTO findById(@PathVariable  Long id){
+
+        return ninjaService.findById(id) ;
+
+    }
+
+    @PostMapping
+    public NinjaModel criarNinja( @RequestBody NinjaDTO ninja){
+        return ninjaService.criarNinja(ninja) ;
+    }
 
 
 
